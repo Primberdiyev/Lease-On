@@ -112,7 +112,6 @@ class _RegisterPageState extends State<RegisterPage> {
                   const SizedBox(height: 8),
 
                   const SizedBox(height: 24),
-                  // Email
                   Container(
                     padding:
                         const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
@@ -137,7 +136,6 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  // Password
                   Container(
                     padding:
                         const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
@@ -176,7 +174,6 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                   const SizedBox(height: 16),
 
-                  // Region Selection
                   StatefulBuilder(
                     builder: (context, setState) {
                       return Container(
@@ -220,7 +217,6 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                   const SizedBox(height: 16),
 
-                  // District Selection
                   StatefulBuilder(
                     builder: (context, setState) {
                       return Container(

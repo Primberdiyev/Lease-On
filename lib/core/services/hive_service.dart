@@ -11,17 +11,14 @@ class HiveService {
     if (_isInitialized) return;
 
     try {
-      // Initialize Hive with a valid documents directory
       final appDocumentDir =
           await path_provider.getApplicationDocumentsDirectory();
       await Hive.initFlutter(appDocumentDir.path);
 
-      // Register adapters
       if (!Hive.isAdapterRegistered(UserModelAdapter().typeId)) {
         Hive.registerAdapter(UserModelAdapter());
       }
 
-      // Open the box
       await Hive.openBox<UserModel>(_userBoxName);
       _isInitialized = true;
     } catch (e) {

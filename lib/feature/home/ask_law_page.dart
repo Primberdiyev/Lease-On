@@ -25,7 +25,6 @@ class _AskLawPageState extends State<AskLawPage> {
     final text = _controller.text.trim();
     if (text.isEmpty) return;
 
-    // Add user message
     setState(() {
       _messages.add({
         'text': text,
@@ -35,7 +34,6 @@ class _AskLawPageState extends State<AskLawPage> {
       _controller.clear();
     });
 
-    // Scroll to bottom
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _scrollController.animateTo(
         _scrollController.position.maxScrollExtent,
@@ -44,7 +42,6 @@ class _AskLawPageState extends State<AskLawPage> {
       );
     });
 
-    // Process and respond after a short delay
     Future.delayed(const Duration(milliseconds: 500), () {
       _findRelevantLaws(text);
     });
@@ -55,19 +52,16 @@ class _AskLawPageState extends State<AskLawPage> {
     final matchedLaws = <LawModel>[];
 
     for (final law in laws) {
-      // Calculate match score
       int score = 0;
 
-      // Check description keywords
       for (final keyword in law.lawDescription) {
         if (queryWords.any((word) => word.contains(keyword.toLowerCase()))) {
           score++;
         }
       }
 
-      // Check law name
       if (law.lawName.toLowerCase().contains(query.toLowerCase())) {
-        score += 2; // Higher weight for name matches
+        score += 2; 
       }
 
       if (score > 0) {
@@ -75,7 +69,6 @@ class _AskLawPageState extends State<AskLawPage> {
       }
     }
 
-    // Sort by relevance (higher score first)
     matchedLaws.sort((a, b) {
       final scoreA = _calculateMatchScore(a, query);
       final scoreB = _calculateMatchScore(b, query);
@@ -91,7 +84,6 @@ class _AskLawPageState extends State<AskLawPage> {
           'timestamp': DateTime.now(),
         });
       } else {
-        // Take only top 2 most relevant laws
         final lawsToShow = matchedLaws.take(2).toList();
 
         _messages.add({
@@ -128,7 +120,6 @@ class _AskLawPageState extends State<AskLawPage> {
       }
     });
 
-    // Scroll to bottom after adding messages
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _scrollController.animateTo(
         _scrollController.position.maxScrollExtent,
@@ -142,16 +133,14 @@ class _AskLawPageState extends State<AskLawPage> {
     final queryWords = query.toLowerCase().split(' ');
     int score = 0;
 
-    // Check description keywords
     for (final keyword in law.lawDescription) {
       if (queryWords.any((word) => word.contains(keyword.toLowerCase()))) {
         score++;
       }
     }
 
-    // Check law name
     if (law.lawName.toLowerCase().contains(query.toLowerCase())) {
-      score += 2; // Higher weight for name matches
+      score += 2; 
     }
 
     return score;

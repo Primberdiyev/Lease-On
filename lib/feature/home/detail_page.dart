@@ -26,7 +26,6 @@ class _DetailPageState extends State<DetailPage> {
     if (_isPlaying) {
       await _audioPlayer.pause();
     } else {
-      // Audio fayl manzilini to'g'ri ko'rsating
       await _audioPlayer.play(AssetSource('audios/contract_audio.mp3'));
     }
     setState(() {
@@ -157,7 +156,6 @@ class _DetailPageState extends State<DetailPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Asosiy rasm
             ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: Image.asset(
@@ -174,7 +172,6 @@ class _DetailPageState extends State<DetailPage> {
             ),
             const SizedBox(height: 16),
 
-            // Narx va ID
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -195,7 +192,6 @@ class _DetailPageState extends State<DetailPage> {
             ),
             const SizedBox(height: 8),
 
-            // Sarlavha
             Text(
               widget.home.title,
               style: const TextStyle(
@@ -223,7 +219,6 @@ class _DetailPageState extends State<DetailPage> {
             ),
             const SizedBox(height: 16),
 
-            // Ko'rishlar va vaqt
             Row(
               children: [
                 const Icon(Icons.remove_red_eye, size: 16, color: Colors.grey),
@@ -243,7 +238,6 @@ class _DetailPageState extends State<DetailPage> {
             ),
             const Divider(height: 32),
 
-            // Manzil bo'limi
             const Text(
               "Manzil",
               style: TextStyle(
@@ -257,7 +251,6 @@ class _DetailPageState extends State<DetailPage> {
               style: const TextStyle(fontSize: 16),
             ),
             const SizedBox(height: 8),
-            // Xarita joylashuvi
             Stack(
               children: [
                 Image.asset('assets/images/map.png'),
@@ -282,7 +275,6 @@ class _DetailPageState extends State<DetailPage> {
             ),
             const Divider(height: 32),
 
-            // Tavsif bo'limi
             const Center(
               child: Text(
                 "Tavsif",
@@ -300,7 +292,6 @@ class _DetailPageState extends State<DetailPage> {
             ),
             const Divider(height: 32),
 
-            // Parametrlar bo'limi
             const Center(
               child: Text(
                 "Parametrlar",
@@ -331,7 +322,6 @@ class _DetailPageState extends State<DetailPage> {
             ),
             const Divider(height: 32),
 
-            // Shartnoma bilan tanishish tugmasi
             SizedBox(
               width: double.infinity,
               child: Padding(
@@ -357,7 +347,6 @@ class _DetailPageState extends State<DetailPage> {
             ),
             const SizedBox(height: 16),
 
-            // Bog'lanish tugmasi
             SizedBox(
               width: double.infinity,
               child: Padding(

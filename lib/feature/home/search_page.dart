@@ -384,27 +384,22 @@ class _SearchPageState extends State<SearchPage> {
       final floorParts = home.floor.split('/');
       final currentFloor = int.tryParse(floorParts[0]) ?? 0;
 
-      // Deal type filter
       if (_dealType != 'Muhim emas' && home.type != _dealType) {
         return false;
       }
 
-      // Price range filter
       if (price < _minPrice || price > _maxPrice) {
         return false;
       }
 
-      // Area filter
       if (home.area < _minArea || home.area > _maxArea) {
         return false;
       }
 
-      // Floor filter
       if (currentFloor < _minFloor || currentFloor > _maxFloor) {
         return false;
       }
 
-      // Building condition filter
       if (_buildingCondition != 'Muhim emas') {
         if (_buildingCondition == 'Yangi qurilish' &&
             home.buildingType != 'Yangi qurilish') {
@@ -416,7 +411,6 @@ class _SearchPageState extends State<SearchPage> {
         }
       }
 
-      // Renovation type filter
       if (_renovationType != 'Muhim emas' &&
           home.renovation != _renovationType) {
         return false;
@@ -463,7 +457,6 @@ class _SearchPageState extends State<SearchPage> {
     final floorDiff = (currentFloor - floorMiddle).abs();
     score += (10 - (floorDiff / floorMiddle * 10).clamp(0, 10)).toInt();
 
-    // Building condition match
     if (_buildingCondition != 'Muhim emas') {
       if (_buildingCondition == 'Yangi qurilish' &&
           home.buildingType == 'Yangi qurilish') {
@@ -474,7 +467,6 @@ class _SearchPageState extends State<SearchPage> {
       }
     }
 
-    // Renovation match
     if (_renovationType != 'Muhim emas' && home.renovation == _renovationType) {
       score += 5;
     }

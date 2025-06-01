@@ -17,15 +17,14 @@ class ComparePage extends StatelessWidget {
     for (var home in comparedHomes) {
       double score = 0;
 
-      // Baholash mezonlari
       if (home.price.contains('y.e')) {
         final price = double.tryParse(
                 home.price.replaceAll('y.e.', '').replaceAll(' ', '')) ??
             999999;
-        score += (20000 - price) / 2000; // Past narx – yaxshi
+        score += (20000 - price) / 2000; 
       }
 
-      score += home.area / 10; // Katta maydon – yaxshi
+      score += home.area / 10; 
 
       if (home.renovation == 'Yevro') score += 3;
 
@@ -236,7 +235,6 @@ class ComparePage extends StatelessWidget {
 
                 const SizedBox(height: 8),
 
-                // Parametrlar ro'yxati
                 Expanded(
                   child: ListView(
                     children: [
