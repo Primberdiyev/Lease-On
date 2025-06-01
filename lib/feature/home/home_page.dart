@@ -22,7 +22,6 @@ class _HomePageState extends State<HomePage> {
     'Sotuv',
     'Ijara',
     'Ofis',
-    'Uk Asset',
   ];
 
   @override
@@ -108,7 +107,7 @@ class _HomePageState extends State<HomePage> {
               itemBuilder: (context, index) {
                 final type = filterTypes[index];
                 return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 0),
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
                   child: SizedBox(
                     width: 120,
                     height: 40,
